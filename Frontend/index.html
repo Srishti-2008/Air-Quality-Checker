@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Air Quality Checker — B.Tech 2nd Year Mini Project</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Top Header -->
+    <header class="app-header">
+      <div>
+        <h1>Air Quality Checker</h1>
+      </div>
+    </header>
+
+    <!-- Main Sketch Card -->
+    <main class="main-card">
+
+      <!-- 1. City or Area Input Box -->
+      <form id="searchForm" class="search-row">
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="cityInput"
+            placeholder="City or Area"
+            value="Bengaluru"
+            required
+          />
+          <button type="button" id="clearInputBtn" class="clear-x-btn" title="Clear">☒</button>
+        </div>
+        <button type="submit" id="checkAqiBtn" class="check-btn">Check AQI</button>
+        <button type="button" id="favToggleBtn" class="fav-add-btn">★ Favorite</button>
+      </form>
+
+      <!-- 2. Quick Check Pills -->
+      <div class="quick-check-row">
+        <span class="row-label">Quick check:</span>
+        <button type="button" class="city-pill quick-city-btn" data-city="Delhi">Delhi</button>
+        <button type="button" class="city-pill quick-city-btn" data-city="Jaipur">Jaipur</button>
+        <button type="button" class="city-pill quick-city-btn" data-city="Bengaluru">Bengaluru</button>
+        <button type="button" class="city-pill quick-city-btn" data-city="Mumbai">Mumbai</button>
+      </div>
+
+      <!-- 3. Just Below City or Area: Favorite Cities -->
+      <div class="favorite-cities-row">
+        <span class="row-label">Favorite cities:</span>
+        <div id="favoriteCitiesContainer" class="fav-pills-list"></div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- 4. Main AQI (Left) + Yesterday VS Today Comparison (Right) -->
+      <section class="aqi-comparison-grid">
+
+        <!-- Left Side: City or Area / AQI 42 / Good -->
+        <div class="aqi-left-box">
+          <p id="displayCity" class="city-label">Bengaluru</p>
+          <h2 class="aqi-main-heading">AQI <span id="aqiNumber">42</span></h2>
+          <p id="aqiStatusText" class="aqi-category-text text-good">Good</p>
+        </div>
+
+        <!-- Right Side: ↓ 6 pts (12% better) / Yesterday VS Today / Aaj hawa kal se 12% behtar h -->
+        <div class="comparison-right-box">
+          <div class="diff-badge-row">
+            <span id="diffBadge" class="diff-badge badge-better">↓ 6 pts (12% better)</span>
+          </div>
+
+          <div class="vs-table">
+            <div class="vs-col">
+              <span class="vs-title">Yesterday</span>
+              <strong id="yesterdayVal" class="vs-num">48</strong>
+            </div>
+            <div class="vs-divider">VS</div>
+            <div class="vs-col">
+              <span class="vs-title">Today</span>
+              <strong id="todayVal" class="vs-num">42</strong>
+            </div>
+          </div>
+
+          <p id="hindiComparisonText" class="comparison-line">
+            The air is 12% cleaner today
+          </p>
+        </div>
+
+      </section>
+
+      <hr class="divider" />
+
+      <!-- 5. Four Color-Coded Pollutant Circles (PM2.5, PM10, NO2, O3) -->
+      <section class="circles-section">
+        <div class="circles-grid">
+
+          <div class="circle-item">
+            <div id="circlePm25" class="pollutant-circle bg-good">
+              <span class="p-name">PM2.5</span>
+              <strong id="pctPm25" class="p-pct">36%</strong>
+            </div>
+            <span id="labelPm25" class="circle-caption">Good</span>
+          </div>
+
+          <div class="circle-item">
+            <div id="circlePm10" class="pollutant-circle bg-moderate">
+              <span class="p-name">PM10</span>
+              <strong id="pctPm10" class="p-pct">58%</strong>
+            </div>
+            <span id="labelPm10" class="circle-caption">Moderate</span>
+          </div>
+
+          <div class="circle-item">
+            <div id="circleNo2" class="pollutant-circle bg-poor">
+              <span class="p-name">NO2</span>
+              <strong id="pctNo2" class="p-pct">71%</strong>
+            </div>
+            <span id="labelNo2" class="circle-caption">Poor</span>
+          </div>
+
+          <div class="circle-item">
+            <div id="circleO3" class="pollutant-circle bg-severe">
+              <span class="p-name">O3</span>
+              <strong id="pctO3" class="p-pct">86%</strong>
+            </div>
+            <span id="labelO3" class="circle-caption">Severe</span>
+          </div>
+
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- 6. Just Before Recommendation: RECENT SEARCHES + Clear All -->
+      <section class="recent-searches-section">
+        <div class="recent-header">
+          <span class="recent-title">RECENT SEARCHES</span>
+          <button type="button" id="clearRecentBtn" class="clear-all-btn">Clear All</button>
+        </div>
+        <div id="recentSearchesList" class="recent-list"></div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- 7. Recommendation Section -->
+      <section class="recommendation-section">
+        <h3 class="rec-label">Recommendation :</h3>
+        <p id="recHeading" class="rec-status text-good">Good AQI</p>
+        <p id="recDescription" class="rec-body">
+          Air quality is clean &amp; fresh! You can open windows &amp; go outside also.
+        </p>
+        <p id="recRiskLevel" class="rec-risk">Low Health risk</p>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

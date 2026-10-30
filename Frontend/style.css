@@ -1,0 +1,461 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f6f3;
+  color: #1b2e24;
+  padding: 24px 16px;
+}
+
+.app-container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 14px 20px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #dce6df;
+}
+
+.sub-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #15803d;
+  letter-spacing: 0.8px;
+}
+
+.app-header h1 {
+  font-size: 24px;
+  color: #0d3b26;
+}
+
+.status-pill {
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.main-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid #dce6df;
+  box-shadow: 0 6px 20px rgba(13, 59, 38, 0.06);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 18px 0;
+}
+
+/* 1. Search Box Row */
+.search-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 11px 38px 11px 14px;
+  font-size: 15px;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+}
+
+.input-wrapper input:focus {
+  border-color: #3b82f6;
+}
+
+.clear-x-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.check-btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  padding: 11px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.check-btn:hover {
+  background-color: #2563eb;
+}
+
+.fav-add-btn {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 2px solid #fcd34d;
+  padding: 11px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* 2 & 3. Quick Check & Favorite Cities Rows */
+.quick-check-row,
+.favorite-cities-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.row-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.city-pill {
+  background: #f8fafc;
+  border: 1.5px solid #94a3b8;
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+}
+
+.city-pill:hover {
+  background: #e2e8f0;
+}
+
+.fav-pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fav-pill {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fffbeb;
+  border: 1.5px solid #f59e0b;
+  border-radius: 999px;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.fav-pill-name {
+  background: none;
+  border: none;
+  padding: 4px 10px;
+  color: #92400e;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.fav-pill-remove {
+  background: #fef3c7;
+  border: none;
+  border-left: 1.5px solid #f59e0b;
+  padding: 4px 8px;
+  color: #b45309;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 4. Main AQI + Yesterday VS Today Grid */
+.aqi-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 18px;
+  align-items: center;
+}
+
+@media (max-width: 560px) {
+  .aqi-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.aqi-left-box {
+  padding: 14px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.city-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.aqi-main-heading {
+  font-size: 36px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 4px 0;
+}
+
+.aqi-category-text {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.comparison-right-box {
+  padding: 14px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.diff-badge-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.diff-badge {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.badge-better {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badge-worse {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.vs-table {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 8px;
+}
+
+.vs-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.vs-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.vs-divider {
+  font-size: 13px;
+  font-weight: 800;
+  color: #94a3b8;
+}
+
+.comparison-line {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* 5. Four Color-Coded Pollutant Circles */
+.circles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  justify-items: center;
+}
+
+@media (max-width: 520px) {
+  .circles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pollutant-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+}
+
+.p-name {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.p-pct {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.circle-caption {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+}
+
+/* Color-Coded Severity Classes */
+.bg-good { background-color: #4caf50; color: #ffffff; }
+.bg-moderate { background-color: #fbc02d; color: #0f172a; }
+.bg-poor { background-color: #fb8c00; color: #ffffff; }
+.bg-severe { background-color: #e53935; color: #ffffff; }
+
+.text-good { color: #15803d; }
+.text-moderate { color: #b45309; }
+.text-poor { color: #ea580c; }
+.text-severe { color: #dc2626; }
+
+/* 6. Recent Searches Section */
+.recent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.recent-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #334155;
+  letter-spacing: 0.5px;
+}
+
+.clear-all-btn {
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  color: #dc2626;
+  cursor: pointer;
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recent-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.recent-row:hover {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.recent-city-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.recent-aqi-box {
+  font-size: 13px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1.5px solid #475569;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+/* 7. Recommendation Section */
+.recommendation-section {
+  background: #fefce8;
+  border: 1.5px solid #fde047;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.rec-label {
+  font-size: 15px;
+  font-weight: 800;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+.rec-status {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.rec-body {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.rec-risk {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+}
